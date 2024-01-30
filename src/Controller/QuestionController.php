@@ -8,12 +8,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class QuestionController extends AbstractController{
     
-    #[Route('/')]
+    #[Route('/', 'app_homepage')]
     public function homepage() {
-        return new Response('cenas da vida');
+        return $this->render('question/homepage.html.twig');
     }
 
-    #[Route('/questions/{slug}')]
+    #[Route('/questions/{slug}', 'app_question_show')]
     public function show($slug) {
         dump($this);
         $answers = [
